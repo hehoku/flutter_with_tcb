@@ -33,6 +33,7 @@ dependencies:
   cloudbase_core: ^0.0.9
   cloudbase_auth: ^0.0.11
   cloudbase_function: ^0.0.2
+  cloudbase_database: ^0.0.10
 
 dev_dependencies:
   flutter_test:

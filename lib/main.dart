@@ -45,18 +45,28 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: FutureBuilder<String>(
-        future: serverTime,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Text(snapshot.data.toString());
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          } else {
-            return CircularProgressIndicator();
-          }
-        },
-      )),
+        child: Column(
+          children: <Widget>[
+            FutureBuilder<String>(
+              future: serverTime,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.toString());
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
+            RaisedButton(
+              onPressed: () {
+                Tcb().addTodo('test');
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
